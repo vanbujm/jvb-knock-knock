@@ -15,8 +15,20 @@ app.use(bodyParser.json({
   limit: config.bodyLimit
 }));
 
-// internal middleware
-app.use(middleware({ config }));
+app.all('/api/*', function (req, res, next) {
+  res.set({
+    'Cache-Control': 'no-cache',
+    'Content-Type': 'application/json; charset=utf-8',
+    'Content-Length': 130,
+    'Expires': -1,
+    'Pragma': 'no-cache',
+    'Strict-Transport-Security': 'max-age=15552000; includeSubDomains; preload',
+    'Vary': 'Accept-Encoding',
+    'X-Content-Type-Options': 'nosniff'
+  });
+  next(); // pass control to the next handler
+});
+
 
 // api router
 app.use('/api', api({ config }));

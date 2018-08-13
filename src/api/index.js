@@ -1,17 +1,19 @@
-import { version } from '../../package.json';
 import { Router } from 'express';
-import facets from './facets';
+import fibonacci from './fibonacci'
 
-export default ({ config, db }) => {
+export default ({ config }) => {
 	let api = Router();
 
-	// mount the facets resource
-	api.use('/facets', facets({ config, db }));
+  api.get('/Fibonacci', fibonacci);
 
-	// perhaps expose some API metadata at the root
-	api.get('/', (req, res) => {
-		res.json({ version });
-	});
+  // GET /api/ReverseWords
+	api.get('/ReverseWords', (req, res) => {});
+
+  // GET /api/Token
+	api.get('/Token', (req, res) => { res.json("bf35aa85-8dc3-46a2-9bfc-6adc64baf534") });
+
+  // GET /api/TriangleType
+	api.get('/TriangleType', (req, res) => {});
 
 	return api;
 }
