@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import fibonacci from './fibonacci'
+import reverseWords from './reverse-words';
 
 export default ({ config }) => {
 	let api = Router();
@@ -7,7 +8,7 @@ export default ({ config }) => {
   api.get('/Fibonacci', fibonacci);
 
   // GET /api/ReverseWords
-	api.get('/ReverseWords', (req, res) => {});
+	api.get('/ReverseWords', reverseWords);
 
   // GET /api/Token
 	api.get('/Token', (req, res) => { res.json("bf35aa85-8dc3-46a2-9bfc-6adc64baf534") });
