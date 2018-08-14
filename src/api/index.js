@@ -3,7 +3,7 @@ import fibonacci from './fibonacci'
 import reverseWords from './reverse-words';
 import triangleType from './triangle-type';
 
-export default ({ config }) => {
+export default () => {
 	let api = Router();
 
   api.get('/Fibonacci', fibonacci);
