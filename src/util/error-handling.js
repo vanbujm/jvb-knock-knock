@@ -1,0 +1,1 @@
+export const invalidRequest = (res) => res.status(400).json({ 'message': 'The request is invalid.' });

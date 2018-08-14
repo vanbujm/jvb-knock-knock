@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import fibonacci from './fibonacci'
 import reverseWords from './reverse-words';
+import triangleType from './triangle-type';
 
 export default ({ config }) => {
 	let api = Router();
@@ -11,10 +12,10 @@ export default ({ config }) => {
 	api.get('/ReverseWords', reverseWords);
 
   // GET /api/Token
-	api.get('/Token', (req, res) => { res.json("bf35aa85-8dc3-46a2-9bfc-6adc64baf534") });
+	api.get('/Token', (req, res) => res.json("bf35aa85-8dc3-46a2-9bfc-6adc64baf534"));
 
   // GET /api/TriangleType
-	api.get('/TriangleType', (req, res) => {});
+	api.get('/TriangleType', triangleType);
 
 	return api;
 }
